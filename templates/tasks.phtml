@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Todo App</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<form method="POST" action="/add">
+    <label for="description">Add a new task:</label>
+    <input type="text" id="description" name="description">
+    <input type="submit" value="Add task">
+</form>
+
+<?php
+
+foreach ($results as $result) { ?>
+
+        <div>
+            <span>
+                <?= $result['message'] ?>
+                <form style="display: inline;" method="POST" action="/mark-done/<?= $result['id'] ?>">
+                    <input type="submit" value="✓">
+                </form>
+                <form style="display: inline;" method="GET" action="/edit/<?= $result['id'] ?>">
+                    <input type="submit" value="✎">
+                </form>
+            </span>
+
+        </div>
+<?php
+}
+?>
+
+<a href="/completed">Show completed tasks</a>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Todo App</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<h2>Completed tasks</h2>
+
+<?php
+
+foreach ($results as $result) { ?>
+
+        <div>
+            <span>
+                <?= $result['message'] ?>
+                <form style="display: inline;" method="POST" action="/delete/<?= $result['id'] ?>">
+                    <input type="submit" value="delete">
+                </form>
+            </span>
+
+        </div>
+<?php
+}
+?>
+
+<a href="/">Go back</a>
+
+</body>
+</html>

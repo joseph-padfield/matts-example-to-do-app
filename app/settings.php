@@ -18,11 +18,14 @@ return function (ContainerBuilder $containerBuilder) {
                 'level' => Logger::DEBUG,
             ],
             'db' => [
-                'host' => 'mysql:host=127.0.0.1;',
-                'name' => 'dbname=example',
+                'host' => 'mysql:host=db;',
+                'name' => 'dbname=todo',
                 'user' => 'root',
                 'password' => 'password',
-                'debug' => true
+                'debug' => true,
+                'options'=> [
+                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
             ]
         ],
     ]);
